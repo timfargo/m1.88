@@ -8,24 +8,36 @@ public class Main {
         int year = 2059;
         printLeapYear(year);
 
+
         // task 2
         int clientOS = 1;
         int clientDeviceYear = 2016;
-        suggestVersion(clientOS, clientDeviceYear);
+        suggestVersion(clientOS,clientDeviceYear);
 
         // task 3
         int deliveryDistance = 95;
-        int countDeliveryDays = counDeliveryDays(deliveryDistance);
+        int countDeliveryDays = countDeliveryDays(deliveryDistance);
         System.out.println("Потребуется дней:" + countDeliveryDays);
     }
 
-    private static void suggestVersion(int clientOS, int clientDeviceYear) {
+    private static void suggestVersion(int clientOS,int clientDeviceYear){
         int currentYear = LocalDate.now().getYear();
-        String resultString = buildResultString(clientOS, clientDeviceYear, currentYear);
-        System.out.println(resultString);
+        if (clientDeviceYear > currentYear) {
+            System.out.print("Установите lite-версию для");
+        } else {
+            System.out.print("Установите версию для");
+        }
+        if (clientOS == 1) {
+            System.out.print("Android");
+        } else {
+            System.out.print("iOS");
+        }
     }
 
-    private static int counDeliveryDays(int deliveryDistance) {
+
+
+
+    private static int countDeliveryDays(int deliveryDistance) {
         int deliveryDays = 4;
         if (deliveryDistance <= 20) {
         }
@@ -41,15 +53,23 @@ public class Main {
     }
 
     private static void printLeapYear(int year) {
-        boolean isLeapYear = isLeaoYear(year);
+        boolean isLeapYear = isLeapYear(year);
         if (isLeapYear) {
-            System.out.println("Год" + year + "высокостный");
-        } else {
-            System.out.println("Год" + year + "не высокостный");
+            printLeapYear(year);
         }
+            printNonLeapYear(year);
+        }
+
+    private static void printYear(int year){
+   System.out.println("Год" + year + "- высокостный");
     }
 
-    private static boolean isLeaoYear(int year) {
+    private static void printNonLeapYear(int year) {
+        System.out.println("Год" + year + "- высокостный");
+    }
+
+
+    private static boolean isLeapYear(int year) {
         return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
     }
 }
