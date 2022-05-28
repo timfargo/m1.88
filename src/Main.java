@@ -12,7 +12,7 @@ public class Main {
         // task 2
         int clientOS = 1;
         int clientDeviceYear = 2016;
-        suggestVersion(clientOS,clientDeviceYear);
+        suggestVersion(clientOS, clientDeviceYear);
 
         // task 3
         int deliveryDistance = 95;
@@ -20,7 +20,7 @@ public class Main {
         System.out.println("Потребуется дней:" + countDeliveryDays);
     }
 
-    private static void suggestVersion(int clientOS,int clientDeviceYear){
+    private static void suggestVersion(int clientOS, int clientDeviceYear) {
         int currentYear = LocalDate.now().getYear();
         if (clientDeviceYear > currentYear) {
             System.out.print("Установите lite-версию для");
@@ -33,8 +33,6 @@ public class Main {
             System.out.print("iOS");
         }
     }
-
-
 
 
     private static int countDeliveryDays(int deliveryDistance) {
@@ -52,17 +50,19 @@ public class Main {
 
     }
 
-    private static void printLeapYear(int year) {
+    private static void printYear(int year) {
         boolean isLeapYear = isLeapYear(year);
         if (isLeapYear) {
             printLeapYear(year);
-        }
+        } else {
             printNonLeapYear(year);
         }
-
-    private static void printYear(int year){
-   System.out.println("Год" + year + "- высокостный");
     }
+
+    private static void printLeapYear(int year) {
+        System.out.println("Год" + year + "- высокостный");
+    }
+
 
     private static void printNonLeapYear(int year) {
         System.out.println("Год" + year + "- высокостный");
