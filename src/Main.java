@@ -38,9 +38,10 @@ public class Main {
     private static int countDeliveryDays(int deliveryDistance) {
         int deliveryDays = 4;
         if (deliveryDistance <= 20) {
+            deliveryDays = 1;
         }
         if (deliveryDistance > 20 && deliveryDistance <= 60) {
-            deliveryDays = 1;
+            deliveryDays = 2;
         }
         if (deliveryDistance > 60 && deliveryDistance <= 100) {
             deliveryDays = 3;
